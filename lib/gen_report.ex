@@ -33,21 +33,22 @@ defmodule GenReport do
     "julho",
     "agosto",
     "setembro",
-     "outubro",
-     "novembro",
-     "dezembro"
+    "outubro",
+    "novembro",
+    "dezembro"
   ]
 
   def build(), do: {:error, "Insira o nome de um arquivo"}
 
   # GenReport.build("gen_report.csv")
   def build(filename) do
-    #result =
-      filename
-      |> Parser.parse_file() # ["Giuliano", 3, "15", "8", "2020"]
-      |> Enum.reduce(report_acc(), fn line, report -> sum_values(line, report) end)
+    # result =
+    filename
+    # ["Giuliano", 3, "15", "8", "2020"]
+    |> Parser.parse_file()
+    |> Enum.reduce(report_acc(), fn line, report -> sum_values(line, report) end)
 
-    #{:ok, result}
+    # {:ok, result}
   end
 
   defp sum_values([name, total_hours, _day, month, year], %{
